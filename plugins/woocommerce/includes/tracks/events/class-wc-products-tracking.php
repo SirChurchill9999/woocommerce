@@ -137,18 +137,24 @@ class WC_Products_Tracking {
 				var hasRecordedEvent = false;
 				var isBlockEditor = false;
 
+				if ( $( '.block-editor' ).length !== 0 && $( '.block-editor' )[0] ) {
+	    			isBlockEditor = true;
+				}
+
 				function sendTracks() {
-					if ( hasRecordedEvent ) {
-						return;
-					}
+					if ( ! isBlockEditor & hasRecordedEvent) {
+             		   return;
+            		}
 
-					if ( $( '.block-editor' ).length !== 0 && $( '.block-editor' )[0] ) {
-						 isBlockEditor = true;
-					}
+       				var description_value  = '';
+     				var tagsText = '';
+     				var currentStockValue = $( '#_stock' ).val();
 
-					var tagsText          = $( '[name=\"tax_input[product_tag]\"]' ).val();
-					var currentStockValue = $( '#_stock' ).val();
-					var description_value  = $( '#content' ).is( ':visible' ) ? $( '#content' ).val() : tinymce.get( 'content' ).getContent();
+           		   if ( ! isBlockEditor ) {
+              			tagsText          = $( '[name=\"tax_input[product_tag]\"]' ).val();
+             		    description_value  = $( '#content' ).is( ':visible' ) ? $( '#content' ).val() : tinymce.get( 'content' ).getContent();
+             		}
+
 					var properties = {
 						attributes:				$( '.woocommerce_attribute' ).length,
 						categories:				$( '[name=\"tax_input[product_cat][]\"]:checked' ).length,
@@ -176,13 +182,28 @@ class WC_Products_Tracking {
 					hasRecordedEvent = true;
 				};
 
-				if ( $( '#publish' ).length !== 0 ) {
-					$( '#publish' ).on( 'click', sendTracks);
-					return;
-				}
+				function waitUntilElementExists( element, callback, limit ) {
+          			if ( $( element ).length > 0 ) {
+          				callback();
+          				return;
+          				}
+          			if ( limit < 1 ) {
+          				return;
+          			}
+          			setTimeout( function() {
+          				limit = limit || 10;
+          				waitUntilElementExists( element, callback, --limit );
+          				}, 500 );
+          		};
 
-				$( '.editor-post-publish-button' ).on( 'click', sendTracks);
+          		if ( ! isBlockEditor ) {
+          			$( '#publish' ).on( 'click', sendTracks);
+          	   		return;
+          		}
 
+          		waitUntilElementExists( '.editor-post-publish-button', function() {
+          			$( '.editor-post-publish-button' ).on( 'click', sendTracks);
+          		});
 			}
 			"
 		);
