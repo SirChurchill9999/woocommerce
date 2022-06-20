@@ -55,7 +55,7 @@ $tt2-gray: #f7f7f7;
 .woocommerce {
 
 	// Common
-	.woocommerce-products-header {
+	.woocommerce-products-header { // TODO remove comment - Note: /shop header, style not needed for all block themes
 		h1.page-title {
 			font-family: var(--wp--preset--font-family--source-serif-pro);
 			font-size: var(--wp--custom--typography--font-size--gigantic);
@@ -65,7 +65,7 @@ $tt2-gray: #f7f7f7;
 		}
 	}
 
-	span.onsale {
+	span.onsale { // TODO remove comment - Note: needed as WC 2022 styles remove WC woocommerce-general
 		top: -1rem;
 		right: -1rem;
 		position: absolute;
@@ -76,22 +76,18 @@ $tt2-gray: #f7f7f7;
 		padding: 0rem 0.5rem 0rem 0.5rem;
 	}
 
-	.price ins, bdi {
-		text-decoration: none;
-	}
-
 	.quantity {
-		input[type='number'] {
+		input[type='number'] { // TODO remove comment - Note: needed as WC 2022 styles remove WC woocommerce-general
 			width: 3em;
 		}
 
 		input[type='number']::-webkit-inner-spin-button,
-		input[type='number']::-webkit-outer-spin-button{
+		input[type='number']::-webkit-outer-spin-button{ // TODO remove comment - Note: WC 2022 styles specific
 			opacity: 1;
 		}
 	}
 
-	&.woocommerce-shop .woocommerce-breadcrumb {
+	&.woocommerce-shop .woocommerce-breadcrumb { // TODO remove comment - Note: WC 2022 styles specific
 		display: none;
 	}
 
@@ -195,12 +191,12 @@ $tt2-gray: #f7f7f7;
 
 	// Shop page
 
-	.woocommerce-result-count {
+	.woocommerce-result-count { // TODO remove comment - Note: needed as WC 2022 styles remove WC woocommerce-general
 		margin-top: 0;
 		font-size: 0.9rem;
 	}
 
-	.woocommerce-ordering {
+	.woocommerce-ordering { // TODO remove comment - Note: needed as WC 2022 styles remove WC woocommerce-general
 		margin-top: -0.2rem;
 		margin-bottom: 3rem;
 
@@ -240,20 +236,15 @@ $tt2-gray: #f7f7f7;
 				}
 			}
 
-			a.added_to_cart {
-				display: block;
-				margin-top: 1rem;
-			}
 		}
 	}
 
-	ul.page-numbers {
+	ul.page-numbers {  // TODO remove comment - Note: needed as WC 2022 styles remove WC woocommerce-general
 		text-align: center;
 	}
 
 	div.product {
 		position: relative;
-		overflow: auto;
 
 		> span.onsale {
 			position: absolute;
@@ -263,10 +254,10 @@ $tt2-gray: #f7f7f7;
 			z-index: 1;
 		}
 
-		div.woocommerce-product-gallery {
+		div.woocommerce-product-gallery { // TODO remove comment - Note: needed as WC 2022 styles remove WC woocommerce-general
 			position: relative;
 
-			a.woocommerce-product-gallery__trigger {
+			a.woocommerce-product-gallery__trigger { // TODO remove comment - Note: needed as WC 2022 styles remove WC woocommerce-general
 				position: absolute;
 				top: 1rem;
 				right: 1rem;
@@ -300,24 +291,20 @@ $tt2-gray: #f7f7f7;
 		div.summary {
 			font-size: 1rem;
 
-			> *{
-				margin-bottom: var( --wp--style--block-gap );
-			}
-
 			h1.product_title {
 				font-size: 2.5rem;
 				margin: 0;
 			}
 
-			figure.woocommerce-product-gallery__wrapper {
+			figure.woocommerce-product-gallery__wrapper { // TODO remove comment - Note: needed as WC 2022 styles remove WC woocommerce-general
 				margin: 0;
 			}
 
 			.woocommerce-product-rating {
-				.star-rating {
+				.star-rating { // TODO remove comment - Note: needed as WC 2022 styles remove WC woocommerce-general
 					display: inline-block;
 				}
-				.woocommerce-review-link {
+				.woocommerce-review-link { // TODO remove comment - Note: needed as WC 2022 styles remove WC woocommerce-general
 					display: inline-block;
 					overflow: hidden;
 					position: relative;
@@ -330,21 +317,6 @@ $tt2-gray: #f7f7f7;
 		button[name='add-to-cart'], button.single_add_to_cart_button {
 			margin-top: 0.5rem;
 			margin-bottom: var( --wp--style--block-gap );
-		}
-
-		table.variations {
-			tr {
-				display: block;
-				margin-bottom: var( --wp--style--block-gap );
-
-				th {
-					padding-right: 1rem;
-				}
-
-				td select {
-					padding: 2px;
-				}
-			}
 		}
 
 		ol.flex-control-thumbs {
@@ -488,7 +460,7 @@ $tt2-gray: #f7f7f7;
 	}
 
 
-	.star-rating {
+	.star-rating {  // TODO remove comment - Note: needed as WC 2022 styles remove WC woocommerce-general
 		overflow: hidden;
 		position: relative;
 		height: 1em;
@@ -525,7 +497,7 @@ $tt2-gray: #f7f7f7;
 		}
 	}
 
-	p.stars {
+	p.stars {  // TODO remove comment - Note: needed as WC 2022 styles remove WC woocommerce-general
 		margin-top: 0;
 
 		a {
@@ -747,7 +719,7 @@ $tt2-gray: #f7f7f7;
 			}
 		}
 	}
-	
+
 	table.shop_table,
 	table.shop_table_responsive {
 		tbody {
@@ -1132,68 +1104,28 @@ $tt2-gray: #f7f7f7;
 /**
  * Account section
  */
-.woocommerce-account {
+.woocommerce-account { // TODO remove comment - Note: remaining styles are WC 2022 styles specific
 
 	.woocommerce-MyAccount-navigation {
 
-		ul {
-			margin: 0;
-			padding: 0;
-		}
-
 		li {
-			list-style: none;
-			padding: 1rem 0;
-
-			&:first-child {
-				padding-top: 0;
-			}
 
 			a {
 				box-shadow: none;
-				text-decoration: none;
-
-				&:hover {
-					text-decoration: underline;
-				}
 			}
 
 			&.is-active {
 
 				a {
 					color: var( --wp--preset--color--primary );
-					text-decoration: underline;
 				}
 			}
 		}
 	}
 
-	.woocommerce-MyAccount-content {
-
-		> p:first-of-type,
-		p.form-row-first,
-		p.form-row-last {
-			margin-block-start: 0px;
-		}
-	}
-
-	&.woocommerce-edit-address {
-
-		.woocommerce-MyAccount-content {
-			form > h3 {
-				margin-block-start: 0px;
-			}
-		}
-	}
-
-	.woocommerce-form-login {
+	.woocommerce-form-login { // TODO remove comment - Note: WC 2022 styles specific
 		max-width: 516px;
 		margin: 0 auto;
-
-		.show-password-input {
-			top: .8rem;
-			right: 1.2rem;
-		}
 	}
 }
 
@@ -1255,4 +1187,3 @@ $tt2-gray: #f7f7f7;
 		margin-right: 4rem;
 	}
 }
-
